@@ -44,12 +44,12 @@ void	ft_putchar(char c)
 
 int		main(void)
 {
-	int tonine[] = {4, 1, 5, 6, 8, 9, 3, 7};
+	int tonine[] = {4, 1, 5, 6, 8, 9, 3, 7, 2};
 	int index3;
 	
-	ft_sort_int_tab(tonine, 8);
+	ft_sort_int_tab(tonine, 9);
 	index3 = 0;
-	while (index3 <= 8)
+	while (index3 <= 9)
 	{
 		ft_putchar(tonine[index3] + 48);
 		index3++;
