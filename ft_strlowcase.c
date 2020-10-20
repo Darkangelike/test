@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 
 char	*ft_strlowcase(char *str)
 {
@@ -18,10 +19,11 @@ char	*ft_strlowcase(char *str)
 	index = 0;
 	while (str[index])
 	{
-		if ((str[index] >= 'A') || (str[index] <= 'Z'))
+		if ((str[index] >= 'A') && (str[index] <= 'Z'))
 			str[index] += 32;
 		index++;
 	}
+    return (str);
 }
 
 void    ft_putchar(char c)
@@ -43,11 +45,27 @@ void    ft_putstr(char *str)
 
 int        main (void)
 {
-    char str1[] = "abcdefz";
-    char str2[] = "ABCDEF";
-    char str3[] = "123456";
+    char str1[] = " abcdefz457";
+    char str2[] = "ABCDEF=/*+";
+    char str3[] = "12345(%*6";
     char str4[] = "";
+    char str5[3] = {23, 11, 22};
     
+    write(1, "str1 = ", 7);
+    ft_putstr(str1);
+    ft_putchar('\n');
+    write(1, "str2 = ", 7);
+    ft_putstr(str2);
+    ft_putchar('\n');
+    write(1, "str3 = ", 7);
+    ft_putstr(str3);
+    ft_putchar('\n');
+    write(1, "str4 = ", 7);
+    ft_putstr(str4);
+    ft_putchar('\n');
+    write(1, "str5 = ", 7);
+    ft_putstr(str5);
+    ft_putchar('\n');
     ft_putstr(ft_strlowcase(str1));
     ft_putchar('\n');
     ft_putstr(ft_strlowcase(str2));
@@ -55,6 +73,8 @@ int        main (void)
     ft_putstr(ft_strlowcase(str3));
     ft_putchar('\n');
     ft_putstr(ft_strlowcase(str4));
+    ft_putchar('\n');
+    ft_putstr(ft_strlowcase(str5));
     
     return (0);
 }
