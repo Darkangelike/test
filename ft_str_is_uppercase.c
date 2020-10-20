@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itieu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/19 18:42:18 by itieu             #+#    #+#             */
-/*   Updated: 2020/10/20 13:15:50 by itieu            ###   ########lyon.fr   */
+/*   Created: 2020/10/19 18:22:30 by itieu             #+#    #+#             */
+/*   Updated: 2020/10/20 13:33:03 by itieu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char		*ft_str_is_printable(char *str)
+char		*ft_str_is_uppercase(char *str)
 {
 	int index;
 
 	index = 0;
 	while (str[index])
 	{
-        if (str[index] < 32 || str[index] > 126)
-			return ("Not printable");
+		if (str[index] < 'A' || str[index] > 'Z')
+			return ("Is not Uppercase");
 		index++;
 	}
-	return ("Is printable");
+	return ("Is Uppercase");
 }
 
 void    ft_putchar(char c)
@@ -59,21 +59,22 @@ int        main (void)
     ft_putchar('\n');
     write(1, "str3 = ", 7);
     ft_putstr(str3);
+	ft_putchar('\n');
     write(1, "str4 = ", 7);
     ft_putstr(str4);
     ft_putchar('\n');
     write(1, "str5 = ", 7);
     ft_putstr(str5);
     ft_putchar('\n');
-    ft_putstr(ft_str_is_printable(str1));
+    ft_putstr(ft_str_is_uppercase(str1));
     ft_putchar('\n');
-    ft_putstr(ft_str_is_printable(str2));
+    ft_putstr(ft_str_is_uppercase(str2));
     ft_putchar('\n');
-    ft_putstr(ft_str_is_printable(str3));
+    ft_putstr(ft_str_is_uppercase(str3));
     ft_putchar('\n');
-    ft_putstr(ft_str_is_printable(str4));
+    ft_putstr(ft_str_is_uppercase(str4));
     ft_putchar('\n');
-    ft_putstr(ft_str_is_printable(str5));
+    ft_putstr(ft_str_is_uppercase(str5));
     
     return (0);
 }

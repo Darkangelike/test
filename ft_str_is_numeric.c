@@ -51,6 +51,15 @@ int		main(void)
 	char str2[] = "123456";
 	char str3[] = "";
 
+    write(1, "str1 = ", 7);
+    ft_putstr(str1);
+    ft_putchar('\n');
+    write(1, "str2 = ", 7);
+    ft_putstr(str2);
+    ft_putchar('\n');
+    write(1, "str3 = ", 7s);
+    ft_putstr(str3);
+    ft_putchar('\n');
 	ft_putstr(ft_str_is_numeric(str1));
 	ft_putchar('\n');
 	ft_putstr(ft_str_is_numeric(str2));
