@@ -6,7 +6,7 @@
 /*   By: itieu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 16:20:24 by itieu             #+#    #+#             */
-/*   Updated: 2020/10/25 18:57:19 by itieu            ###   ########lyon.fr   */
+/*   Updated: 2020/10/26 12:44:44 by itieu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int 		ft_strncmp(char *s1, char *s2, unsigned int n)
 	unsigned int i;
 
 	i = 0;
-	while (((s1[i] && s2[i]) != '\0') || (i < n) || (s1[i] == s2[i]))
+	while (((s1[i] && s2[i]) != '\0') && (i < n) && (s1[i] == s2[i]))
 	{
 		if ((s1[i] < s2[i]) || (s1[i] > s2[i]))
 				return (s1[i] - s2[i]);
@@ -28,7 +28,7 @@ int 		ft_strncmp(char *s1, char *s2, unsigned int n)
 
             int        main (void)
         {
-            char s1[] = "Hellllll";
+            char s1[] = "HelA";
             char s2[] = "Helll";
             
             printf("%s \n", s1);

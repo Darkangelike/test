@@ -6,7 +6,7 @@
 /*   By: itieu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 18:27:55 by itieu             #+#    #+#             */
-/*   Updated: 2020/10/21 17:36:52 by itieu            ###   ########lyon.fr   */
+/*   Updated: 2020/10/26 12:04:55 by itieu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	ft_putstr(char *str)
 
 int        main (void)
 {
-    char str1[] = "AAAggg";
-    char str2[] = "123456";
+    char str1[] = "*";
+    char str2[] = "123";
     char str3[] = "";
     
     write(1, "str1 = ", 7);
