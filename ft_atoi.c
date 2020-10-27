@@ -6,7 +6,7 @@
 /*   By: itieu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 11:52:27 by itieu             #+#    #+#             */
-/*   Updated: 2020/10/23 13:27:39 by itieu            ###   ########lyon.fr   */
+/*   Updated: 2020/10/27 16:18:52 by itieu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int        ft_atoi(char *str)
     }
     return (base * sign);
 }
+
+#include <stdio.h>
 
 int		main (void)
 {

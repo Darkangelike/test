@@ -6,31 +6,31 @@
 /*   By: itieu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 13:58:56 by itieu             #+#    #+#             */
-/*   Updated: 2020/10/27 12:13:14 by itieu            ###   ########lyon.fr   */
+/*   Updated: 2020/10/27 18:07:34 by itieu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *tofind)
+char	*ft_strstr(char *str, char *to_find)
 {
 	int i;
 	int j;
 
 	i = 0;
-	if (tofind[0] == '\0')
+	if (to_find[0] == '\0')
 		return (str);
 	while (str[i])
 	{
 	j = 0;
-		while (tofind[j])
+		while (to_find[j])
 		{
-			if (str[i + j] == tofind[j])
+			if (str[i + j] == to_find[j])
 			{
 				j++;
 			}
 			else
 				break;
 		}
-		if (tofind[j] == '\0')
+		if (to_find[j] == '\0')
 		{
 			return (str + i);
 		}

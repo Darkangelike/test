@@ -1,41 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itieu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/25 15:45:43 by itieu             #+#    #+#             */
-/*   Updated: 2020/10/27 16:55:24 by itieu            ###   ########lyon.fr   */
+/*   Created: 2020/10/15 21:52:43 by itieu             #+#    #+#             */
+/*   Updated: 2020/10/27 18:34:04 by itieu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int		ft_strcmp(char *s1, char *s2)
+void	ft_putchar(char c)
 {
-	int i;
-
-	i = 0;
-	while ((s1[i] || s2[i]) || (s1[i] == s2[i]))
-	{
-		if ((s1[i] > s2[i]) || (s1[i] < s2[i]))
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (0);
+	write(1, &c, 1);
 }
 
-#include <string.h>
-
-int		main (void)
+void	ft_putnbr(int nb)
 {
-	char s1[] = "HelllaaaaaaA";
-	char s2[] = "Hellla";
+	if (nb == 0)
+	{
+		write(1, "0", 1);
+		return ;
+	}
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else if (nb <= 9)
+		ft_putchar(nb + 48);
+}
 
-	printf("%s \n", s1);
-	printf("%s \n", s2);
-	printf("ft: %d \n", ft_strcmp(s1, s2));
-	printf("rl: %d \n", strcmp(s1, s2));
+#include <stdio.h>
+
+int main (void)
+{
+	ft_putnbr(-123456);
 	return (0);
 }
