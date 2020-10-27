@@ -6,37 +6,31 @@
 /*   By: itieu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 13:58:56 by itieu             #+#    #+#             */
-/*   Updated: 2020/10/27 12:13:14 by itieu            ###   ########lyon.fr   */
+/*   Updated: 2020/10/27 12:09:43 by itieu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *tofind)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int i;
-	int j;
+	char			*begin;
+	char			*to_find_cp;
 
-	i = 0;
-	if (tofind[0] == '\0')
+	if (*to_find == '\0')
 		return (str);
-	while (str[i])
+	while (*str != '\0')
 	{
-	j = 0;
-		while (tofind[j])
+		begin = str;
+		to_find_cp = to_find;
+		while (*to_find_cp == *str)
 		{
-			if (str[i + j] == tofind[j])
-			{
-				j++;
-			}
-			else
-				break;
+			++str;
+			++to_find_cp;
 		}
-		if (tofind[j] == '\0')
-		{
-			return (str + i);
-		}
-		i++;
+		if (*to_find_cp == '\0')
+			return (begin);
+		str = begin + 1;
 	}
-	return (0);
+	return ((char *)0);
 }
 
 #include <stdio.h>
@@ -49,6 +43,6 @@ int main(void)
 
 	printf("str1 = %s\nstr2 = %s\n", str1, str2);
 	printf("ft_strstr = %s\n", ft_strstr(str1, str2));
-	printf("ft strstr = %s\n", strstr(str1, str2));
+	printf("rl strstr = %s\n", strstr(str1, str2));
 		return (0);
 }

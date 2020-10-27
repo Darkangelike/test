@@ -6,7 +6,7 @@
 /*   By: itieu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 18:24:11 by itieu             #+#    #+#             */
-/*   Updated: 2020/10/18 16:40:24 by itieu            ###   ########lyon.fr   */
+/*   Updated: 2020/10/27 11:51:04 by itieu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,13 @@ void	ft_putstr(char *str)
 	}
 }
 
+#include <stdio.h>
+#include <string.h>
+
 int		main (void)
 {
-	char str1[] = "Hello";
-	char str2[] = "nononnon";
+	char str1[] = "nonononon";
+	char str2[] = "Hello";
 	
 	ft_putstr(str1);
 	ft_putchar('\n');
@@ -58,5 +61,9 @@ int		main (void)
 	ft_putstr(str1);
 	ft_putchar('\n');
 	ft_putstr(str2);
+	ft_putchar('\n');
+	ft_putchar('\n');
+	printf("ft: %s\n", ft_strcpy(str2, str1));
+	printf("rl: %s\n", strcpy(str2, str1));
 	return (0);
 }

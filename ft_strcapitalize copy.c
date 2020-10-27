@@ -1,56 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   testc.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itieu <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/19 19:13:51 by itieu             #+#    #+#             */
-/*   Updated: 2020/10/22 19:02:39 by itieu            ###   ########lyon.fr   */
+/*   Created: 2020/10/25 16:27:39 by itieu             #+#    #+#             */
+/*   Updated: 2020/10/27 11:27:40 by itieu            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	ft_strlowcase(char *str)
+char	*ft_strcapitalize(char *str)
 {
 	int i;
 
-	i = 0;
+	i = 1;
+	if (str[0] >= 'a' && str[0] <= 'z')
+		str[0] = str[0] - 32;
 	while (str[i])
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
+		if (!((str[i - 1] >= 'A' && str[i - 1] <= 'Z') ||
+			(str[i - 1] >= 'a' && str[i - 1] <= 'z') ||
+			(str[i - 1] >= '0' && str[i - 1] <= '9')))
 		{
-			str[i] += 32;
+			if (str[i] >= 'a' && str[i] <= 'z')
+				str[i] = str[i] - 32;
+		}
+		else
+		{
+			if (str[i] >= 'A' && str[i] <= 'Z')
+				str[i] = str[i] + 32;
 		}
 		i++;
 	}
 	return (str);
-}
-
-char    *ft_strcapitalize(char *str)
-{
-    int i;
-    
-    i = 0;
-    if ((str[0] >= 'a' && str[0] <= 'z') && (str[0] != '\0'))
-         str[0] -= 32;
-	i = 1;
-   	while (str[i])
-   	{
-		if (((str[i] >= 'a' && str[i] <= 'z') && (str[i] >= 'A' && str[i] <= 'Z')) && ((str[i - 1] >= 'a' && str[i - 1] <= 'z') ||
-				(str[i - 1] >= 'A' && str[i - 1] <= 'Z') ||
-                (str[i - 1] >= '0' && str[i - 1] <= '9')))
-			 {
-				if (str[i] >= 'A' && str[i] <= 'Z')
-				   	str[i] += 32;
-				i++;
-			 }
-			 else if (str[i] >= 'a' && str[i] <= 'z')
-                str[i] -= 32;
-            i++;
-        }
-    return (str);
 }
 
 
@@ -70,6 +55,8 @@ void    ft_putstr(char *str)
         index++;
     }
 }
+
+#include <stdio.h>
 
 int        main (void)
 {
@@ -103,7 +90,13 @@ int        main (void)
     ft_putstr(ft_strcapitalize(str4));
    // ft_putchar('\n');
    // ft_putstr(ft_strcapitalize(str5));
-    
+   
+	printf("print1: %s\n", ft_strcapitalize(str1));
+	printf("print2: %s\n", ft_strcapitalize(str2));
+	printf("print3: %s\n", ft_strcapitalize(str3));
+
     return (0);
 }
+
+
 
